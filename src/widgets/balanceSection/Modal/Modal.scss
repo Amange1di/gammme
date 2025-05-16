@@ -1,0 +1,45 @@
+.modaloverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalcontent {
+  background: #fffbe6;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px #bfa14a55;
+  padding: 36px 44px;
+  min-width: 340px;
+  text-align: center;
+  border: 3px solid #ffe066;
+}
+
+.modalbtn {
+  margin-top: 10px;
+  padding: 10px 32px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(90deg, #f7b733, #fc4a1a);
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #fc4a1a33;
+}
+
+.modalformula {
+  font-size: 22px;
+  color: #a67c1a;
+  margin-bottom: 12px;
+
+  &_strong {
+    font-weight: 700;
+  }
+}

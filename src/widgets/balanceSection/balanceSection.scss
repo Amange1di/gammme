@@ -1,0 +1,55 @@
+.appRoot {
+    min-height: 100vh;
+    background: repeating-linear-gradient(135deg, #f9e7c2 0 40px, #f7f3e3 40px 80px);
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.header {
+    text-align: center;
+    color: #a67c1a;
+    font-weight: 900;
+    font-size: 40px;
+    margin: 36px 0 18px 0;
+    text-shadow: 0 4px 16px #fff8, 0 2px 0 #bfa14a, 0 0 8px #ffe06688;
+}
+
+.momentInfo {
+    margin-top: 44px;
+    text-align: center;
+    font-size: 26px;
+    color: #a67c1a;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 0 #fff, 0 0 8px #ffe06644;
+}
+
+.balanceSuccess {
+    color: #2b8a3e;
+    font-weight: bold;
+    font-size: 28px;
+    margin-left: 18px;
+    text-shadow: 0 2px 0 #fff, 0 0 8px #bfa14a;
+}
+
+.balanceFail {
+    color: #c33;
+    font-weight: bold;
+    margin-left: 18px;
+    text-shadow: 0 2px 0 #fff;
+}
+
+.balanceHint {
+    margin-top: 22px;
+    color: #a67c1a;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    text-shadow: 0 2px 0 #fff;
+}
+
+.balanceHintStrong {
+    color: #bfa14a;
+    font-weight: 700;
+}

@@ -1,0 +1,74 @@
+.board {
+  position: relative;
+  height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+
+  &_rotate {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    height: 220px;
+    margin-top: 40px;
+    transition: transform 0.7s cubic-bezier(.5, 1.5, .5, 1);
+    position: relative;
+    z-index: 2;
+    height: 28px;
+    background: linear-gradient(90deg, #bfa14a 0%, #fffbe6 50%, #bfa14a 100%);
+    border-radius: 18px;
+    box-shadow: 0 8px 32px #bfa14a44, 0 2px 0 #fff inset;
+    border: 4px solid #a67c1a;
+  }
+
+  &_support {
+    width: 44px;
+    height: 28px;
+    background: radial-gradient(ellipse at 50% 40%, #fff 60%, #bfa14a 100%);
+    border-radius: 50% 50% 60% 60%/60% 60% 100% 100%;
+    border: 3px solid #bfa14a;
+    box-shadow: 0 4px 16px #bfa14a55;
+    margin: 0 auto;
+    position: relative;
+    top: 32px;
+    z-index: 3;
+  }
+
+  &_pillar {
+    width: 26px;
+    height: 270px;
+    background: linear-gradient(180deg, #e2c275 60%, #bfa14a 100%);
+    border-radius: 10px;
+    box-shadow: 0 12px 40px #bfa14a88;
+    margin: 0 auto;
+    position: relative;
+    top: -10px;
+    z-index: 2;
+  }
+
+  &_beam {
+    width: 10px;
+    height: 32px;
+    background: linear-gradient(90deg, #bfa14a 0%, #fffbe6 50%, #bfa14a 100%);
+    border-radius: 18px;
+    box-shadow: 0 8px 32px #bfa14a44, 0 2px 0 #fff inset;
+    border: 4px solid #a67c1a;
+    margin: 0 18px;
+    align-self: flex-end;
+
+  }
+
+  &_leftPlates {
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+  }
+
+  &_rightPlates {
+    display: flex;
+    flex-direction: row;
+    gap: 18px;
+  }
+}

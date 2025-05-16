@@ -1,0 +1,22 @@
+.placedweight {
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle at 60% 40%, #c33 70%, #900 100%);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  border: 1px solid #fff;
+  box-shadow: 0 4px 16px #a33a;
+  font-size: 24px;
+  margin: 0 4px;
+  cursor: grab;
+  transition: box-shadow 0.2s, border 0.2s;
+
+  &_dragged {
+    opacity: 0.5;
+    filter: brightness(1.2) drop-shadow(0 0 8px #ffe066);
+  }
+}

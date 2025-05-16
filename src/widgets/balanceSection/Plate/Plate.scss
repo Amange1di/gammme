@@ -1,0 +1,48 @@
+.plate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &_drop{
+    width: 50px;
+  }
+}
+
+.platedrop {
+  width: 50px;
+  height: 26px;
+  background: radial-gradient(ellipse at 60% 40%, #fff 75%, #bfa14a 100%);
+  border: 4px solid #a67c1a;
+  border-radius: 50% 50% 70% 70%/70% 70% 100% 100%;
+  box-shadow: 0 12px 32px #bfa14a33, 0 2px 0 #fff inset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.22s cubic-bezier(.5, 1.5, .5, 1);
+  margin-top: 4px;
+  margin-bottom: 4px;
+
+  &_hovered {
+    width: 68px;
+    height: 28px;
+    background: radial-gradient(ellipse at 60% 40%, #fff 85%, #ffe066 100%);
+    border: 5px solid #ffe066;
+    box-shadow: 0 16px 40px #ffe06688, 0 2px 0 #fff inset;
+    filter: brightness(1.07);
+  }
+
+  outline: none;
+}
+
+.platedrop:has(.placedweight[style*="dashed"]) {
+  outline: 2px dashed #a67c1a;
+  outline-offset: -4px;
+}
+
+.plate_posnum {
+  font-size: 18px;
+  color: #a67c1a;
+  font-weight: 700;
+  margin-top: 2px;
+  text-shadow: 0 1px 0 #fff, 0 0 6px #ffe06644;
+  user-select: none;
+}
