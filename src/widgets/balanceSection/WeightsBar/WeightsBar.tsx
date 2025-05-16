@@ -1,5 +1,5 @@
 import React from "react";
-import { Weight, PlacedWeight } from "../type";
+import { Weight, PlacedWeight } from "../types";
 import './WeightsBar.scss';
 
 type WeightsBarProps = {

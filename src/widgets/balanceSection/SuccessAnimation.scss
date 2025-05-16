@@ -1,0 +1,130 @@
+.success-animation {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 2000;
+    transition: opacity 0.5s cubic-bezier(.5, 1.5, .5, 1);
+}
+
+.emoji-burst {
+    position: relative;
+    animation: pop-in 0.7s cubic-bezier(.5, 1.5, .5, 1);
+}
+
+.emoji {
+    font-size: 90px;
+    filter: drop-shadow(0 0 16px #ffe06688);
+    animation: bounce 1.2s cubic-bezier(.5, 1.5, .5, 1);
+}
+
+.burst {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ffe06688 40%, transparent 70%);
+    opacity: 0.7;
+    animation: burst-anim 0.8s cubic-bezier(.5, 1.5, .5, 1);
+}
+
+.burst1 {
+    left: -50px;
+    top: 10px;
+    animation-delay: 0.1s;
+}
+
+.burst2 {
+    right: -50px;
+    top: 10px;
+    animation-delay: 0.2s;
+}
+
+.burst3 {
+    left: 10px;
+    bottom: -50px;
+    animation-delay: 0.3s;
+}
+
+@keyframes pop-in {
+    0% {
+        transform: scale(0.2);
+        opacity: 0;
+    }
+
+    70% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(80px) scale(0.2);
+        opacity: 0;
+    }
+
+    60% {
+        transform: translateY(-20px) scale(1.1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes burst-anim {
+    0% {
+        transform: scale(0.2);
+        opacity: 0;
+    }
+
+    80% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0;
+    }
+}
+
+@media (max-width: 700px) {
+    .success-animation {
+        align-items: flex-end;
+        padding-bottom: 60px;
+    }
+
+    .emoji {
+        font-size: 60px;
+    }
+
+    .burst {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+@media (max-width: 500px) {
+    .emoji {
+        font-size: 38px;
+    }
+
+    .burst {
+        width: 22px;
+        height: 22px;
+    }
+}

@@ -1,11 +1,12 @@
-import React, { useState, useRef } from "react";
-import { Weight, PlacedWeight } from "./type";
+import React, { useState } from "react";
+import { Weight, PlacedWeight } from "./types";
 import WeightsBar from "./WeightsBar/WeightsBar";
 import Board from "./Board/Board";
 import Modal from "./Modal/Modal";
 import './balanceSection.scss';
 import weightSound from "./weight-sounddd.mp3";
 import finshSound from "./finsh.mp3";
+import SuccessAnimation from "./SuccessAnimation";
 
 const initialWeights: Weight[] = [
   { id: 1, mass: 1 },
@@ -14,20 +15,17 @@ const initialWeights: Weight[] = [
   { id: 4, mass: 10 },
 ];
 
-const leftPositions = [8, 7, 6, 5, 4, 3, 2, 1];
-const rightPositions = [1, 2, 3, 4, 5, 6, 7, 8];
-
 export const BalanceSection = () => {
 
   const [available, setAvailable] = useState<Weight[]>(initialWeights);
   const [placed, setPlaced] = useState<PlacedWeight[]>([]);
   const [dragged, setDragged] = useState<Weight | null>(null);
   const [draggedPlaced, setDraggedPlaced] = useState<PlacedWeight | null>(null);
-  const [hoveredPlate, setHoveredPlate] = useState<{ side: "left" | "right" | "board", pos: number } | null>(null);
+  const [hoveredPlate, setHoveredPlate] = useState<{ side: "left" | "right", pos: number } | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
-  const wasBalanced = useRef(false);
   const audioRef = React.useRef<HTMLAudioElement>(null);
   const finshAudioRef = React.useRef<HTMLAudioElement>(null);
+  const [checkResult, setCheckResult] = useState<null | 'success' | 'fail'>(null);
 
   // Считаем моменты
   const leftMoment = placed.filter(w => w.side === "left").reduce((sum, w) => sum + w.mass * w.position, 0);
@@ -43,21 +41,21 @@ export const BalanceSection = () => {
     return { left, right };
   }
 
-  // Показываем модалку только при первом появлении баланса
-  React.useEffect(() => {
-    if (leftMoment === rightMoment && placed.length > 0) {
-      if (!wasBalanced.current) {
-        setModalOpen(true);
-        wasBalanced.current = true;
-        if (finshAudioRef.current) {
-          finshAudioRef.current.currentTime = 0;
-          finshAudioRef.current.play();
-        }
-      }
-    } else {
-      wasBalanced.current = false;
-    }
-  }, [leftMoment, rightMoment, placed.length]);
+  // useEffect больше не открывает модалку
+  // React.useEffect(() => {
+  //   if (leftMoment === rightMoment && placed.length > 0) {
+  //     if (!wasBalanced.current) {
+  //       setModalOpen(true);
+  //       wasBalanced.current = true;
+  //       if (finshAudioRef.current) {
+  //         finshAudioRef.current.currentTime = 0;
+  //         finshAudioRef.current.play();
+  //       }
+  //     }
+  //   } else {
+  //     wasBalanced.current = false;
+  //   }
+  // }, [leftMoment, rightMoment, placed.length]);
 
   // Drag & Drop
   function onDragStart(weight: Weight) {
@@ -101,11 +99,28 @@ export const BalanceSection = () => {
       setDraggedPlaced(null);
     }
   }
+  function checkBalance() {
+    if (placed.length === 0) {
+      setCheckResult(null);
+      return;
+    }
+    if (leftMoment === rightMoment) {
+      setCheckResult('success');
+      setModalOpen(true);
+      if (finshAudioRef.current) {
+        finshAudioRef.current.currentTime = 0;
+        finshAudioRef.current.play();
+      }
+    } else {
+      setCheckResult('fail');
+    }
+  }
   function reset() {
     setAvailable(initialWeights);
     setPlaced([]);
     setDragged(null);
     setDraggedPlaced(null);
+    setCheckResult(null);
   }
 
   function playWeightSound() {
@@ -127,15 +142,16 @@ export const BalanceSection = () => {
         onPlacedDrop={onAvailableDrop}
         onReset={reset}
       />
-        {/* <div className="momentInfo">
-        <b>Левый :</b> {leftMoment} &nbsp;
-        <b>Правый :</b> {rightMoment} &nbsp;
-        {leftMoment === rightMoment && placed.length > 0 ? (
-          <span className="balanceSuccess">Баланс!</span>
-        ) : (
-          <span className="balanceFail">Не уравновешено</span>
-        )}
-      </div> */}
+      <div style={{ textAlign: 'center', marginBottom: 18, display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 8 }}>
+        <button onClick={checkBalance} style={{ fontSize: 22, padding: '14px 32px', borderRadius: 16, background: '#ffe066', border: 'none', fontWeight: 'bold', marginRight: 8, marginBottom: 8, boxShadow: '0 2px 8px #ffe06688', cursor: 'pointer', transition: 'background 0.2s' }}>Проверить</button>
+        <button onClick={reset} style={{ fontSize: 22, padding: '14px 32px', borderRadius: 16, background: 'linear-gradient(90deg, #f7b733, #fc4a1a)', border: 'none', fontWeight: 'bold', color: '#fff', marginBottom: 8, boxShadow: '0 2px 8px #fc4a1a33', cursor: 'pointer', transition: 'background 0.2s' }}>Сбросить</button>
+      </div>
+      {checkResult === 'success' && (
+        <div className="balanceSuccess" style={{ textAlign: 'center', marginBottom: 12 }}>Верно! Весы в равновесии 🎉</div>
+      )}
+      {checkResult === 'fail' && (
+        <div className="balanceFail" style={{ textAlign: 'center', marginBottom: 12 }}>Ошибка: весы не уравновешены. Попробуйте ещё раз!</div>
+      )}
       <Board
         placed={placed}
         dragged={dragged}
@@ -147,9 +163,11 @@ export const BalanceSection = () => {
         onDrop={onDrop}
         angle={angle}
       />
-    
+
+      {modalOpen && <SuccessAnimation />}
+
       {modalOpen && (
-        <Modal example={getExample()} onClose={() => setModalOpen(false)} />
+        <Modal example={getExample()} onClose={() => { setModalOpen(false); reset(); }} />
       )}
 
       <audio ref={audioRef} src={weightSound} preload="auto" />

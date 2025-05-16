@@ -68,3 +68,53 @@
   letter-spacing: 1px;
   text-shadow: 0 2px 0 #bfa14a, 0 0 8px #fff8;
 }
+
+@media (max-width: 700px) {
+  .weightsbar {
+    font-size: 14px;
+    min-height: 48px;
+    border-width: 1.5px;
+    border-radius: 10px;
+  }
+
+  .weight {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+    margin: 6px;
+    border-width: 2px;
+    line-height: 32px;
+  }
+
+  .resetbtn {
+    font-size: 14px;
+    padding: 8px 18px;
+    border-radius: 8px;
+    margin-left: 12px;
+  }
+}
+
+@media (max-width: 500px) {
+  .weightsbar {
+    font-size: 10px;
+    min-height: 28px;
+    border-width: 1px;
+    border-radius: 6px;
+  }
+
+  .weight {
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
+    margin: 2px;
+    border-width: 1px;
+    line-height: 18px;
+  }
+
+  .resetbtn {
+    font-size: 10px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-left: 4px;
+  }
+}

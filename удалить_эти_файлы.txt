@@ -1,0 +1,8 @@
+src/app/.keep
+src/entities/.keep
+src/features/.keep
+src/pages/.keep
+src/app/index.ts
+src/entities/index.ts
+src/features/index.ts
+src/shared/index.ts

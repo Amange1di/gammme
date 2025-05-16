@@ -1,11 +1,10 @@
 import React from "react";
-import { PlacedWeight, Weight } from "../type";
+import { PlacedWeight } from "../types";
 import Plate from "../Plate/Plate";
 import './Board.scss';
 
 type BoardProps = {
   placed: PlacedWeight[];
-  dragged: Weight | null;
   draggedPlaced: PlacedWeight | null;
   hoveredPlate: { side: "left" | "right", pos: number } | null;
   onPlacedDragStart: (w: PlacedWeight) => void;
@@ -20,7 +19,6 @@ const rightPositions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 const Board: React.FC<BoardProps> = ({
   placed,
-  dragged,
   draggedPlaced,
   hoveredPlate,
   onPlacedDragStart,

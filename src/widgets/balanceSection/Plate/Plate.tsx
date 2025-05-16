@@ -1,5 +1,5 @@
 import React from "react";
-import { PlacedWeight } from "../type";
+import { PlacedWeight } from "../types";
 import PlacedWeightComponent from "../PlacedWeight/PlacedWeight";
 import './Plate.scss';
 
@@ -32,21 +32,21 @@ const Plate: React.FC<PlateProps> = ({
     <div className="plate">
       <div className="plate_drop">
 
-      <div
-        className={"platedrop" + (isHovered ? " platedrop_hovered" : "")}
-        onDragOver={e => onPlateDragOver(side, pos, e)}
-        onDragLeave={onPlateDragLeave}
-        onDrop={() => onDrop(side, pos)}
-      >
-        {placed.filter(w => w.side === side && w.position === pos).map(w => (
-          <PlacedWeightComponent
-            key={w.id}
-            w={w}
-            draggedPlaced={draggedPlaced}
-            onPlacedDragStart={onPlacedDragStart}
-          />
-        ))}
-      </div>
+        <div
+          className={"platedrop" + (isHovered ? " platedrop_hovered" : "")}
+          onDragOver={e => onPlateDragOver(side, pos, e)}
+          onDragLeave={onPlateDragLeave}
+          onDrop={() => onDrop(side, pos)}
+        >
+          {placed.filter(w => w.side === side && w.position === pos).map(w => (
+            <PlacedWeightComponent
+              key={w.id}
+              w={w}
+              draggedPlaced={draggedPlaced}
+              onPlacedDragStart={onPlacedDragStart}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

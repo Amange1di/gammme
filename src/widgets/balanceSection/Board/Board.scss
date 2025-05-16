@@ -72,3 +72,53 @@
     gap: 18px;
   }
 }
+
+@media (max-width: 900px) {
+  .board {
+    height: 340px;
+  }
+
+  .board_rotate {
+    margin-top: 16px;
+  }
+}
+
+@media (max-width: 700px) {
+  .board {
+    height: 220px;
+    min-width: 340px;
+    width: 100vw;
+    overflow-x: auto;
+    padding-bottom: 12px;
+  }
+
+  .board_rotate {
+    flex-wrap: nowrap;
+    min-width: 600px;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .board_leftPlates,
+  .board_rightPlates {
+    gap: 8px;
+  }
+}
+
+@media (max-width: 500px) {
+  .board {
+    height: 90px;
+    min-width: 180px;
+    padding-bottom: 4px;
+  }
+
+  .board_rotate {
+    min-width: 220px;
+    margin-top: 4px;
+  }
+
+  .board_leftPlates,
+  .board_rightPlates {
+    gap: 2px;
+  }
+}

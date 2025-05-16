@@ -1,5 +1,5 @@
 import React from "react";
-import { PlacedWeight } from "../type";
+import { PlacedWeight } from "../types";
 import './PlacedWeight.scss';
 
 interface PlacedWeightProps {

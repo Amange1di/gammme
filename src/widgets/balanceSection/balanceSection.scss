@@ -53,3 +53,47 @@
     color: #bfa14a;
     font-weight: 700;
 }
+
+@media (max-width: 900px) {
+    .header {
+        font-size: 28px;
+        margin: 24px 0 12px 0;
+    }
+
+    .momentInfo {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 700px) {
+    .appRoot {
+        padding: 0 4px;
+    }
+
+    .header {
+        font-size: 22px;
+        margin: 16px 0 8px 0;
+    }
+
+    .balanceSuccess,
+    .balanceFail {
+        font-size: 18px;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .appRoot {
+        min-height: 100vh;
+        padding: 0 2px;
+    }
+
+    .header {
+        font-size: 18px;
+    }
+
+    .balanceHint,
+    .balanceHintStrong {
+        font-size: 14px;
+    }
+}
