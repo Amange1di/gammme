@@ -211,7 +211,7 @@ export const WoterSection = () => {
             }
           }}
           disabled={big === 0}
-        ></button>
+        >
           Проверить
         </button>
         <button
@@ -244,5 +244,5 @@ export const WoterSection = () => {
         <b>Задание:</b> Налей ровно <b>{TARGET} литра</b> в большой сосуд, используя маленький!
       </div>
     </div>
-  )
+  );
 }
