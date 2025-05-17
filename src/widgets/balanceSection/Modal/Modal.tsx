@@ -22,7 +22,7 @@ const Modal: React.FC<ModalProps> = ({ example, onClose }) => (
       <button
         onClick={onClose}
         className="modalbtn"
-      >Закрыть</button>
+      >Далее</button>
     </div>
   </div>
 );

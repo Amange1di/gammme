@@ -11,10 +11,20 @@
     color: #a67c1a;
     font-weight: 900;
     font-size: 40px;
-    margin: 36px 0 18px 0;
+    margin: 0 0 18px 0;
     text-shadow: 0 4px 16px #fff8, 0 2px 0 #bfa14a, 0 0 8px #ffe06688;
 }
-
+.task{
+    text-align: center;
+    color: #3b372e;
+    font-weight: 900;
+    font-size: 20px;
+    margin: 36px 0 18px 0;
+    text-shadow: 0 4px 16px #fff8, 0 2px 0 #bfa14a, 0 0 8px #ffe06688;
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    font-weight: 500;
+    
+}
 .momentInfo {
     margin-top: 44px;
     text-align: center;
@@ -52,6 +62,84 @@
 .balanceHintStrong {
     color: #bfa14a;
     font-weight: 700;
+}
+
+.btns-bar {
+  text-align: center;
+  margin-bottom: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.check-btn {
+  font-size: 22px;
+  padding: 14px 32px;
+  border-radius: 16px;
+  background: #ffe066;
+  border: none;
+  font-weight: bold;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 8px #ffe06688;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.reset-btn {
+  font-size: 22px;
+  border-radius: 50%;
+  border: none;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 8px;
+  box-shadow: 0 2px 8px #fc4a1a33;
+  cursor: pointer;
+  transition: background 0.2s;
+  background: transparent;
+  padding: 0;
+}
+
+.balanceSuccess {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.balanceFail {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.allUsedError {
+  color: #c33;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+
+.tasks-list {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.task-btn {
+  padding: 6px 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-weight: normal;
+  cursor: pointer;
+  transition: background 0.2s, border 0.2s, font-weight 0.2s;
+}
+.task-btn.active {
+  border: 2px solid #f7b733;
+  background: #ffe066;
+  font-weight: bold;
 }
 
 @media (max-width: 900px) {

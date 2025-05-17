@@ -37,10 +37,7 @@ const WeightsBar: React.FC<WeightsBarProps> = ({
         {w.mass}
       </span>
     ))}
-    <button
-      onClick={onReset}
-      className="resetbtn"
-    >Сбросить</button>
+    
     {draggedPlaced && (
       <span className="weightsbar_hint">Отпустите здесь, чтобы вернуть грузик</span>
     )}

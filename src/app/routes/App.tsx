@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import '../style/app.module.scss'
+import '../style/app.scss'
 import { Balance, Woter } from '../../pages'
 
 function App() {
