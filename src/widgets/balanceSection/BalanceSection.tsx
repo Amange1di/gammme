@@ -187,7 +187,6 @@ export const BalanceSection = () => {
         draggedPlaced={draggedPlaced}
         onDragStart={onDragStart}
         onPlacedDrop={onAvailableDrop}
-        onReset={reset}
       />
       <h4 className="task">{task}</h4>
       <div className="btns-bar">
