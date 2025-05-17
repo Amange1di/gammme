@@ -1,10 +1,11 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom'
 import '../style/app.scss'
 import { Balance, Woter } from '../../pages'
 
 function App() {
   return (
     <BrowserRouter>
+      <NavLink to="/woter">fsfsf</NavLink>
       <Routes>
         <Route path="/" element={<Balance />} />
         <Route path="/woter" element={<Woter />} />
