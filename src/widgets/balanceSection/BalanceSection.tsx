@@ -126,13 +126,13 @@ export const BalanceSection = () => {
   }
 
   // Проверка: все ли грузики были использованы
-  function allWeightsUsed() {
-    if (!available.length && tasks[currentTaskIndex]?.mass?.length) {
-      // Все грузики использованы, если available пуст и mass не пуст
-      return true;
-    }
-    return false;
-  }
+  // function allWeightsUsed() {
+  //   if (!available.length && tasks[currentTaskIndex]?.mass?.length) {
+  //     // Все грузики использованы, если available пуст и mass не пуст
+  //     return true;
+  //   }
+  //   return false;
+  // }
 
   function checkBalance() {
     // Проверяем, что все грузики использованы
@@ -205,7 +205,6 @@ export const BalanceSection = () => {
       )}
       <Board
         placed={placed}
-        dragged={dragged}
         draggedPlaced={draggedPlaced}
         hoveredPlate={hoveredPlate}
         onPlacedDragStart={onPlacedDragStart}
@@ -218,7 +217,7 @@ export const BalanceSection = () => {
       {modalOpen && <SuccessAnimation />}
 
       {modalOpen && (
-        <Modal example={getExample()} onClose={nextTask} buttonText="Далее" />
+        <Modal example={getExample()} onClose={nextTask} />
       )}
 
       {/* Показываем все задачи и выделяем текущую */}

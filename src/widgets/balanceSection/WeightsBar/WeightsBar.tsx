@@ -8,7 +8,6 @@ type WeightsBarProps = {
   draggedPlaced: PlacedWeight | null;
   onDragStart: (w: Weight) => void;
   onPlacedDrop: () => void;
-  onReset: () => void;
 };
 
 const WeightsBar: React.FC<WeightsBarProps> = ({
@@ -16,8 +15,7 @@ const WeightsBar: React.FC<WeightsBarProps> = ({
   dragged,
   draggedPlaced,
   onDragStart,
-  onPlacedDrop,
-  onReset
+  onPlacedDrop
 }) => (
   <div
     className={`weightsbar${draggedPlaced ? ' weightsbar_active' : ''}`}

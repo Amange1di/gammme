@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import "./woterSection.scss"
 import { BigGlass, SmallGlass } from '../../shared/GlassSet';
 import splashSound from "../../shared/water-splash.mp3";
-import { FillVesselGame } from "./FillVesselGame";
 
 const BIG_CAP = 52;
 const SMALL_CAP = 3;
@@ -143,30 +142,30 @@ export const WoterSection = () => {
   } : {};
 
   // --- Новое позиционирование для "наливания сверху" ---
-  let bigWrapperStyle = {};
-  let smallWrapperStyle = {};
+  // let bigWrapperStyle = {};
+  // let smallWrapperStyle = {};
   let stream = null;
   let splash = null;
   const isVerticalPour = isPouring && showStream;
 
-  if (isPouring === 'big' && showStream) {
-    bigWrapperStyle = {
-      position: 'absolute',
-      left: '50%',
-      top: 0,
-      transform: 'translateX(-50%)',
-      transition: 'all 0.4s cubic-bezier(.4,2,.6,1)',
-      zIndex: 2,
-      filter: 'drop-shadow(0 8px 16px #00eaff44)'
-    };
-    smallWrapperStyle = {
-      position: 'absolute',
-      left: '50%',
-      top: 110,
-      transform: 'translateX(-50%)',
-      transition: 'all 0.4s cubic-bezier(.4,2,.6,1)',
-      zIndex: 1
-    };
+  // if (isPouring === 'big' && showStream) {
+  //   bigWrapperStyle = {
+  //     position: 'absolute',
+  //     left: '50%',
+  //     top: 0,
+  //     transform: 'translateX(-50%)',
+  //     transition: 'all 0.4s cubic-bezier(.4,2,.6,1)',
+  //     zIndex: 2,
+  //     filter: 'drop-shadow(0 8px 16px #00eaff44)'
+  //   };
+  //   smallWrapperStyle = {
+  //     position: 'absolute',
+  //     left: '50%',
+  //     top: 110,
+  //     transform: 'translateX(-50%)',
+  //     transition: 'all 0.4s cubic-bezier(.4,2,.6,1)',
+  //     zIndex: 1
+  //   };
     // Струя теперь идёт из нижней части горлышка большого в центр горлышка маленького
     stream = (
       <svg style={{ position: 'absolute', left: 0, top: 0, pointerEvents: 'none' }} width="220" height="200">
