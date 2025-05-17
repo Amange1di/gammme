@@ -166,149 +166,149 @@ export const WoterSection = () => {
   //     transition: 'all 0.4s cubic-bezier(.4,2,.6,1)',
   //     zIndex: 1
   //   };
-    // Струя теперь идёт из нижней части горлышка большого в центр горлышка маленького
-    stream = (
-      <svg style={{ position: 'absolute', left: 0, top: 0, pointerEvents: 'none' }} width="220" height="200">
-        <linearGradient id="water-stream" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#00eaff" stopOpacity="0.9" />
-          <stop offset="100%" stopColor="#00eaff" stopOpacity="0.2" />
-        </linearGradient>
-        {/* Старт: низ горлышка большого (x=110, y=90), финиш: центр горлышка маленького (x=110, y=150) */}
-        <path d="M110 90 C110 110, 110 130, 110 150" stroke="url(#water-stream)" strokeWidth="10" fill="none" strokeLinecap="round" opacity="0.8" />
-        <ellipse cx="110" cy="150" rx="10" ry="4" fill="#00eaff88" opacity="0.7" />
-      </svg>
-    );
-    splash = null;
-  } else if (isPouring === 'small' && showStream) {
-    smallWrapperStyle = {
-      position: 'absolute',
-      left: '50%',
-      top: 0,
-      transform: 'translateX(-50%)',
-      transition: 'all 0.4s cubic-bezier(.4,2,.6,1)',
-      zIndex: 2,
-      filter: 'drop-shadow(0 8px 16px #00eaff44)'
-    };
-    bigWrapperStyle = {
-      position: 'absolute',
-      left: '50%',
-      top: 110,
-      transform: 'translateX(-50%)',
-      transition: 'all 0.4s cubic-bezier(.4,2,.6,1)',
-      zIndex: 1
-    };
-    // Струя теперь идёт из нижней части горлышка маленького (x=160, y=90) в центр большого (x=110, y=150)
-    stream = (
-      <svg style={{ position: 'absolute', left: 0, top: 0, pointerEvents: 'none' }} width="220" height="200">
-        <linearGradient id="water-stream2" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#00eaff" stopOpacity="0.9" />
-          <stop offset="100%" stopColor="#00eaff" stopOpacity="0.2" />
-        </linearGradient>
-        {/* Старт: низ горлышка маленького (x=160, y=90), финиш: центр большого (x=110, y=150) */}
-        <path d="M160 90 C150 120, 130 140, 110 150" stroke="url(#water-stream2)" strokeWidth="10" fill="none" strokeLinecap="round" opacity="0.8" />
-        <ellipse cx="110" cy="150" rx="10" ry="4" fill="#00eaff88" opacity="0.7" />
-      </svg>
-    );
-    splash = null;
-  }
+  // Струя теперь идёт из нижней части горлышка большого в центр горлышка маленького
+  stream = (
+    <svg style={{ position: 'absolute', left: 0, top: 0, pointerEvents: 'none' }} width="220" height="200">
+      <linearGradient id="water-stream" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stopColor="#00eaff" stopOpacity="0.9" />
+        <stop offset="100%" stopColor="#00eaff" stopOpacity="0.2" />
+      </linearGradient>
+      {/* Старт: низ горлышка большого (x=110, y=90), финиш: центр горлышка маленького (x=110, y=150) */}
+      <path d="M110 90 C110 110, 110 130, 110 150" stroke="url(#water-stream)" strokeWidth="10" fill="none" strokeLinecap="round" opacity="0.8" />
+      <ellipse cx="110" cy="150" rx="10" ry="4" fill="#00eaff88" opacity="0.7" />
+    </svg>
+  );
+  splash = null;
+} else if (isPouring === 'small' && showStream) {
+  smallWrapperStyle = {
+    position: 'absolute',
+    left: '50%',
+    top: 0,
+    transform: 'translateX(-50%)',
+    transition: 'all 0.4s cubic-bezier(.4,2,.6,1)',
+    zIndex: 2,
+    filter: 'drop-shadow(0 8px 16px #00eaff44)'
+  };
+  bigWrapperStyle = {
+    position: 'absolute',
+    left: '50%',
+    top: 110,
+    transform: 'translateX(-50%)',
+    transition: 'all 0.4s cubic-bezier(.4,2,.6,1)',
+    zIndex: 1
+  };
+  // Струя теперь идёт из нижней части горлышка маленького (x=160, y=90) в центр большого (x=110, y=150)
+  stream = (
+    <svg style={{ position: 'absolute', left: 0, top: 0, pointerEvents: 'none' }} width="220" height="200">
+      <linearGradient id="water-stream2" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stopColor="#00eaff" stopOpacity="0.9" />
+        <stop offset="100%" stopColor="#00eaff" stopOpacity="0.2" />
+      </linearGradient>
+      {/* Старт: низ горлышка маленького (x=160, y=90), финиш: центр большого (x=110, y=150) */}
+      <path d="M160 90 C150 120, 130 140, 110 150" stroke="url(#water-stream2)" strokeWidth="10" fill="none" strokeLinecap="round" opacity="0.8" />
+      <ellipse cx="110" cy="150" rx="10" ry="4" fill="#00eaff88" opacity="0.7" />
+    </svg>
+  );
+  splash = null;
+}
 
-  return (
-    <div className='woterSection' >
-      <div className="woterSection-inner">
-        <div className={isVerticalPour ? "big-glass-wrapper vertical" : "big-glass-wrapper"}>
-          <div
-            draggable={big > 0 && !isPouring}
-            onDragStart={() => handleDragStart('big')}
-            onDragOver={e => handleDragOver('big', e)}
-            onDragLeave={handleDragLeave}
-            onDrop={() => handleDrop('big')}
-            className={
-              [
-                'glass-draggable',
-                'big',
-                big > 0 && !isPouring ? 'grab' : 'pointer',
-                dragSource === 'big' ? 'outline-green' : dragOver === 'big' ? 'outline-blue' : ''
-              ].join(' ')
-            }
-            style={bigPouringStyle}
-          >
-            <BigGlass value={bigValue} />
-          </div>
-        </div>
-        <div className={isVerticalPour ? "small-glass-wrapper vertical" : "small-glass-wrapper"}>
-          <div
-            draggable={small > 0 && !isPouring}
-            onDragStart={() => handleDragStart('small')}
-            onDragOver={e => handleDragOver('small', e)}
-            onDragLeave={handleDragLeave}
-            onDrop={() => handleDrop('small')}
-            className={
-              [
-                'glass-draggable',
-                'small',
-                small > 0 && !isPouring ? 'grab' : 'pointer',
-                dragSource === 'small' ? 'outline-green' : dragOver === 'small' ? 'outline-blue' : ''
-              ].join(' ')
-            }
-            style={smallPouringStyle}
-          >
-            <SmallGlass value={smallValue} />
-          </div>
-        </div>
-        {stream}
-        {splash}
-      </div>
-
-      <div className="pour-counter">
-        <b>Счётчик наливаний:</b> {pourCount}
-      </div>
-      <div style={{ marginTop: 12, color: '#888', fontSize: 15 }}>
-      </div>
-      <audio ref={splashAudio} src={splashSound} preload="auto" />
-      <div style={{ marginTop: 16 }}>
-        <button
-          className="check-btn"
-          onClick={() => {
-            if (big === TARGET) {
-              setShowModal(true);
-              setErrorMsg("");
-            } else {
-              setErrorMsg(`Нужно налить ровно ${TARGET} литра! Сейчас: ${Math.round(big)} л.`);
-            }
-          }}
-          disabled={big === 0}
+return (
+  <div className='woterSection' >
+    <div className="woterSection-inner">
+      <div className={isVerticalPour ? "big-glass-wrapper vertical" : "big-glass-wrapper"}>
+        <div
+          draggable={big > 0 && !isPouring}
+          onDragStart={() => handleDragStart('big')}
+          onDragOver={e => handleDragOver('big', e)}
+          onDragLeave={handleDragLeave}
+          onDrop={() => handleDrop('big')}
+          className={
+            [
+              'glass-draggable',
+              'big',
+              big > 0 && !isPouring ? 'grab' : 'pointer',
+              dragSource === 'big' ? 'outline-green' : dragOver === 'big' ? 'outline-blue' : ''
+            ].join(' ')
+          }
+          style={bigPouringStyle}
         >
-          Проверить
-        </button>
-        <button
-          className="remove-btn"
-          onClick={() => {
-            if (big > 0) setBig(big - 1);
-          }}
-          disabled={big === 0}
-        >
-          Убрать лишнюю воду
-        </button>
-      </div>
-      {errorMsg && (
-        <div className="error-msg">{errorMsg}</div>
-      )}
-      {showModal && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <div className="modal-title">Молодец! Всё правильно!</div>
-            <button onClick={() => {
-              setShowModal(false);
-              setBig(0);
-              setPourCount(0);
-              setErrorMsg("");
-            }} className="modal-close-btn">Закрыть</button>
-          </div>
+          <BigGlass value={bigValue} />
         </div>
-      )}
-      <div className="task-desc">
-        <b>Задание:</b> Налей ровно <b>{TARGET} литра</b> в большой сосуд, используя маленький!
       </div>
+      <div className={isVerticalPour ? "small-glass-wrapper vertical" : "small-glass-wrapper"}>
+        <div
+          draggable={small > 0 && !isPouring}
+          onDragStart={() => handleDragStart('small')}
+          onDragOver={e => handleDragOver('small', e)}
+          onDragLeave={handleDragLeave}
+          onDrop={() => handleDrop('small')}
+          className={
+            [
+              'glass-draggable',
+              'small',
+              small > 0 && !isPouring ? 'grab' : 'pointer',
+              dragSource === 'small' ? 'outline-green' : dragOver === 'small' ? 'outline-blue' : ''
+            ].join(' ')
+          }
+          style={smallPouringStyle}
+        >
+          <SmallGlass value={smallValue} />
+        </div>
+      </div>
+      {stream}
+      {splash}
     </div>
-  )
+
+    <div className="pour-counter">
+      <b>Счётчик наливаний:</b> {pourCount}
+    </div>
+    <div style={{ marginTop: 12, color: '#888', fontSize: 15 }}>
+    </div>
+    <audio ref={splashAudio} src={splashSound} preload="auto" />
+    <div style={{ marginTop: 16 }}>
+      <button
+        className="check-btn"
+        onClick={() => {
+          if (big === TARGET) {
+            setShowModal(true);
+            setErrorMsg("");
+          } else {
+            setErrorMsg(`Нужно налить ровно ${TARGET} литра! Сейчас: ${Math.round(big)} л.`);
+          }
+        }}
+        disabled={big === 0}
+      >
+        Проверить
+      </button>
+      <button
+        className="remove-btn"
+        onClick={() => {
+          if (big > 0) setBig(big - 1);
+        }}
+        disabled={big === 0}
+      >
+        Убрать лишнюю воду
+      </button>
+    </div>
+    {errorMsg && (
+      <div className="error-msg">{errorMsg}</div>
+    )}
+    {showModal && (
+      <div className="modal-overlay">
+        <div className="modal-content">
+          <div className="modal-title">Молодец! Всё правильно!</div>
+          <button onClick={() => {
+            setShowModal(false);
+            setBig(0);
+            setPourCount(0);
+            setErrorMsg("");
+          }} className="modal-close-btn">Закрыть</button>
+        </div>
+      </div>
+    )}
+    <div className="task-desc">
+      <b>Задание:</b> Налей ровно <b>{TARGET} литра</b> в большой сосуд, используя маленький!
+    </div>
+  </div>
+)
 }

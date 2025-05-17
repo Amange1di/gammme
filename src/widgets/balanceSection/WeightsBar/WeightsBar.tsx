@@ -35,7 +35,7 @@ const WeightsBar: React.FC<WeightsBarProps> = ({
         {w.mass}
       </span>
     ))}
-    
+
     {draggedPlaced && (
       <span className="weightsbar_hint">Отпустите здесь, чтобы вернуть грузик</span>
     )}
