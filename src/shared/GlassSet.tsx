@@ -1,5 +1,3 @@
-import React from 'react';
-
 // Колба (Erlenmeyer flask)
 export const Flask = ({ value }: { value?: number }) => (
     <svg width="80" height="110" viewBox="0 0 80 110" fill="none" xmlns="http://www.w3.org/2000/svg">
