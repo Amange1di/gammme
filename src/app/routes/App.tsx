@@ -5,7 +5,8 @@ import { Balance, Woter } from '../../pages'
 function App() {
   return (
     <BrowserRouter>
-      <NavLink to="/woter">fsfsf</NavLink>
+      <NavLink to="/">Balance</NavLink>
+      <NavLink to="/woter">Woter</NavLink>
       <Routes>
         <Route path="/" element={<Balance />} />
         <Route path="/woter" element={<Woter />} />
